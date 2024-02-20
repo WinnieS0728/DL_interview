@@ -14,20 +14,16 @@ export default async function RepoResultPage() {
 
   if (!repos.length) {
     return (
-      <section className='uppercase text-center text-xl py-8'>
+      <section className="py-8 text-center text-xl uppercase">
         no repo has been found
       </section>
     );
   }
 
   return (
-    <section className='grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] grid-rows-[repeat(3,auto)] gap-4 py-4'>
+    <section className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] grid-rows-[repeat(3,auto)] gap-4 py-4">
       {repos.map((repo) => (
-        <Link
-          key={repo.id}
-          href={repo.html_url}
-          target='_blank'
-        >
+        <Link key={repo.id} href={repo.html_url} target="_blank">
           <RepoCard repoData={repo} />
         </Link>
       ))}

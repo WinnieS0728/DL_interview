@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.scss";
-import Header from "@/layout/header";
-import ReactQueryProvider from "@/providers/react query";
 import SearchInput from "@/components/search input";
 import TagLinks from "@/components/tag links";
-import icons from "@icons";
 import Footer from "@/layout/footer";
+import Header from "@/layout/header";
+import ReactQueryProvider from "@/providers/react query";
+import icons from "@icons";
+import type { Metadata } from "next";
+import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "TW Join interview",
