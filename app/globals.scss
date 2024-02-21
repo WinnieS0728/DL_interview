@@ -6,8 +6,4 @@
   h1 {
     @apply text-2xl;
   }
-
-  input:not([type="submit"]) {
-    @apply border-2 bg-slate-50 rounded-md px-2 py-1;
-  }
 }

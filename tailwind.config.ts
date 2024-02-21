@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config = {
   content: [
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -39,5 +39,5 @@ const config: Config = {
     },
   },
   plugins: [],
-};
+} satisfies Config;
 export default config;
