@@ -52,6 +52,9 @@ function getOrderByUser({
 ### github search api
 
 - next v14 app-router
-- using `octokit` to make api request.
-- use debounce input set searchParams and make search request.
+- use `octokit` to make api request.
+- type repo / user name and wait for auto search.
+- use debounce input to set searchParams and make search request.
+- repos is sort by stars.
+- users is sort by followers.
 - per_page = 10 to get TOP10.
