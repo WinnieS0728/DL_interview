@@ -23,8 +23,13 @@ export default async function RepoResultPage() {
   return (
     <section className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] grid-rows-[repeat(3,auto)] gap-4 py-4">
       {repos.map((repo) => (
-        <Link key={repo.id} href={repo.html_url} target="_blank">
-          <RepoCard repoData={repo} />
+        <Link
+          key={repo.id}
+          href={repo.html_url}
+          target="_blank"
+          className="row-span-3 grid grid-rows-subgrid"
+        >
+          <RepoCard key={repo.id} repoData={repo} />
         </Link>
       ))}
     </section>

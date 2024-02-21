@@ -2,10 +2,10 @@ import SearchInput from "@/components/search input";
 import TagLinks from "@/components/tag links";
 import Footer from "@/layout/footer";
 import Header from "@/layout/header";
-import ReactQueryProvider from "@/providers/react query";
 import icons from "@icons";
 import type { Metadata } from "next";
 import "./globals.scss";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "TW Join interview",
@@ -19,20 +19,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactQueryProvider>
-        <body className="bg-github_bg-500 text-white">
-          <Header />
-          <main className="px-2 lg:px-20 xl:px-40">
+      <body className="bg-github_bg-500 text-white">
+        <Header />
+        <main className="px-2 lg:px-20 xl:px-40">
+          <Suspense>
             <section className="flex items-center justify-center gap-4 p-8">
-              <icons.search />
-              <SearchInput />
+              <icons.search className="text-xl" />
+              <div className="space-y-1">
+                <p>type repo / user name</p>
+                <SearchInput />
+              </div>
             </section>
+          </Suspense>
+          <Suspense>
             <TagLinks />
-            {children}
-          </main>
-          <Footer />
-        </body>
-      </ReactQueryProvider>
+          </Suspense>
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

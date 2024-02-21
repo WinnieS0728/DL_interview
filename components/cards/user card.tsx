@@ -1,26 +1,34 @@
 import { getUsers } from "@/actions/getUsers";
-import { dateFormatter } from "@/utils/dateFormatter";
-import icons from "@icons";
 import Image from "next/image";
-
+import CardContainer from "./card container";
+import { getFollowers } from "@/actions/getFollowers";
+import icon from "@icons";
 interface props {
   userData: Awaited<ReturnType<typeof getUsers>>[number];
 }
 
-export default function UserCard({ userData }: props) {
+export default async function UserCard({ userData }: props) {
+  const followers = await getFollowers({
+    url: userData.followers_url,
+  });
+
   return (
     <>
-      <article className='border-2 border-github_bg-400 p-4 rounded-xl flex flex-col gap-2 justify-center items-center'>
+      <CardContainer className="flex flex-col items-center justify-center gap-2">
         <Image
           src={userData.avatar_url}
           alt={`${userData.id}-avatar-image`}
           priority
           width={16 * 2.5}
           height={16 * 2.5}
-          className='aspect-square rounded-full'
+          className="aspect-square rounded-full"
         />
-        <p className='text-xl'>{userData.login}</p>
-      </article>
+        <p className="text-xl">{userData.login}</p>
+        <div className="flex items-center gap-1">
+          <icon.follower />
+          {followers}
+        </div>
+      </CardContainer>
     </>
   );
 }
