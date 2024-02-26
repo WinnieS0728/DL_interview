@@ -6,7 +6,7 @@ export default function Footer() {
       <p>
         © 2024 <strong>WinnieS</strong>. All rights reserved.
       </p>
-      <p>TW Join Interview</p>
+      <p>DATALAKE Interview</p>
     </footer>
   );
 }
